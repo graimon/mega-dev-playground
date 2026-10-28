@@ -13,13 +13,16 @@ Engineering closed #4471 on 2026-10-05. That closure gave no verdict for `one-da
 
 ## Files
 
+The kb lives at the repo root, in the layout of the export. Paths are relative to the repo root.
+
 | Path | What it is |
 |---|---|
-| `support-kb/` | The kb export of 2026-10-04, with the new page and its logic |
-| `support-kb/src/routes/kb/incidents/4471/problems/+page.svx` | The new page, signed |
-| `support-kb/src/lib/kb/problems.ts`, `ProblemTable.svelte` | The logic and the table that the page uses |
+| `README.md`, `src/` | The kb export of 2026-10-04, with the new page and its logic |
+| `src/routes/kb/incidents/4471/problems/+page.svx` | The new page, signed |
+| `src/lib/kb/problems.ts`, `src/lib/kb/ProblemTable.svelte` | The logic and the table that the page uses |
 | `rendered/kb/incidents/4471/problems.html` | The page as the desk sees it, prerendered |
-| `build-setup/` | The SvelteKit and mdsvex files that built `rendered/` |
+| `s01e03/build-setup/` | The SvelteKit and mdsvex files that built `rendered/` |
 
-To build again: copy the files in `build-setup/` into `support-kb/` (`app.html` and `+layout.js`
-go under `src/` and `src/routes/`), then run `npm install` and `npm run build`.
+To build again: copy `package.json`, `svelte.config.js` and `vite.config.js` from
+`s01e03/build-setup/` to the repo root. Copy `app.html` to `src/` and `+layout.js` to
+`src/routes/`. Then run `npm install` and `npm run build`.
