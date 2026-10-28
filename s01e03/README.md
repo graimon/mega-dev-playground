@@ -3,11 +3,13 @@
 The support desk merged 412 reports into ticket #4471 and marked it known. The reports show three
 problems, each with its own ticket in this repo:
 
-| Ticket | Problem | Reports |
-|---|---|---|
-| [#1](https://github.com/graimon/mega-dev-playground/issues/1) | `parser`: the shared parser reads day-first dates month first | 374 |
-| [#2](https://github.com/graimon/mega-dev-playground/issues/2) | `hint`: the `booking-v3` form hint says `MM/DD/YYYY`, the form reads day first | 33 |
-| [#3](https://github.com/graimon/mega-dev-playground/issues/3) | `one-day`: dates move by one day, probably a time zone conversion | 5 |
+| Ticket | Problem | Reports | State |
+|---|---|---|---|
+| [#1](https://github.com/graimon/mega-dev-playground/issues/1) | `parser`: the shared parser reads day-first dates month first | 374 | closed, fixed |
+| [#2](https://github.com/graimon/mega-dev-playground/issues/2) | `hint`: the `booking-v3` form hint says `MM/DD/YYYY`, the form reads day first | 33 | closed, won't fix |
+| [#3](https://github.com/graimon/mega-dev-playground/issues/3) | `one-day`: dates move by one day, probably a time zone conversion | 5 | open |
+
+Engineering closed #4471 on 2026-10-05. That closure gave no verdict for `one-day`, so #3 stays open.
 
 ## Files
 

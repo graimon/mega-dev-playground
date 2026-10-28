@@ -6,7 +6,13 @@
   import type { Report } from '#lib/kb/causes';
 
   // `issues` maps each problem to the ticket that tracks it: { parser: 1, … } in `repo`.
-  let { ticket, repo, issues }: { ticket: number; repo: string; issues: Partial<Record<Problem, number>> } = $props();
+  // `states` holds what engineering decided for each problem: { parser: 'fixed', … }.
+  let {
+    ticket,
+    repo,
+    issues,
+    states = {},
+  }: { ticket: number; repo: string; issues: Partial<Record<Problem, number>>; states?: Partial<Record<Problem, string>> } = $props();
 
   const split = $derived(problemsIn(reports as Report[], ticket, tenantOf, notes.oneDayMove));
 </script>
@@ -19,7 +25,7 @@
 
 <table>
   <thead>
-    <tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr>
+    <tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>state</th></tr>
   </thead>
   <tbody>
     {#each split.groups as g (g.problem)}
@@ -35,6 +41,7 @@
             no ticket
           {/if}
         </td>
+        <td class:open={!states[g.problem] || states[g.problem] === 'open'}>{states[g.problem] ?? 'open'}</td>
       </tr>
     {/each}
   </tbody>
@@ -44,4 +51,5 @@
   .sum { font-size: 1.1rem; }
   .untracked td { background: var(--warn-bg); }
   .untracked td:last-child { color: var(--warn); font-weight: 600; }
+  .open { color: var(--warn); font-weight: 600; }
 </style>

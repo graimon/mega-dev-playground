@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="../../../_app/immutable/entry/start.x-jC6Nfp.js" rel="modulepreload">
+    <link href="../../../_app/immutable/entry/start.CpxEI7jD.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/B3KQeK8V.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/CjcVXDhm.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/CQsSUvCo.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/Da1WreSC.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.BScZ2Wvg.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.-bQon1t5.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CbMo8Z9O.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/fu1QYaFF.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/BEu8O_Ug.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.D6Nepz03.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/Bu_uMKax.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/5.DVAyltb-.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/BrFnZejs.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/5.CrT58DJS.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/DqE-OF_X.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/xxceUWID.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/Cq46RALh.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CF-6eEYD.js" rel="modulepreload">
@@ -22,11 +22,12 @@
 		<link href="../../../_app/immutable/assets/runbook.9BJ9BomY.css" rel="stylesheet">
 		<link href="../../../_app/immutable/assets/Callout.89E4ZsOX.css" rel="stylesheet">
 		<link href="../../../_app/immutable/assets/CauseTable.AZcnZ4nk.css" rel="stylesheet">
-		<link href="../../../_app/immutable/assets/5.BEYCR3AJ.css" rel="stylesheet">
+		<link href="../../../_app/immutable/assets/5.BSqRffKB.css" rel="stylesheet">
   </head>
   <body><!--[--><!--[--><!----><!----><div class="kb svelte-60g32v"><header><a class="crumb svelte-60g32v" href="/kb">support desk · kb</a> <h1 class="svelte-60g32v">#4471 · the problems inside one ticket</h1> <p class="meta svelte-60g32v"><span>owner <b>graimon</b></span> <span class="status open svelte-60g32v">open</span> <span class="svelte-60g32v">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[!--><!--]--> <main><p>The <a href="/kb/incidents/4471">#4471 page</a> says one issue and one fix. The reports in #4471 show more
-than one problem. Each problem has its own cause and needs its own fix. The fix for the parser
-leaves the other problems in place.</p> <aside class="warn svelte-hdh0t2"><!---->#4471 is not one known issue. Each problem below has its own ticket.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-1nd8eo5"><strong>412</strong> reports merged into #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr></thead><tbody><!--[--><tr class="svelte-1nd8eo5"><td class="svelte-1nd8eo5"><code>parser</code></td><td class="svelte-1nd8eo5">374</td><td class="svelte-1nd8eo5">11</td><td class="svelte-1nd8eo5">2026-04-01 → 2026-10-04</td><td class="svelte-1nd8eo5"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/1">graimon/mega-dev-playground#1</a><!--]--></td></tr><tr class="svelte-1nd8eo5"><td class="svelte-1nd8eo5"><code>hint</code></td><td class="svelte-1nd8eo5">33</td><td class="svelte-1nd8eo5">3</td><td class="svelte-1nd8eo5">2026-04-17 → 2026-09-22</td><td class="svelte-1nd8eo5"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/2">graimon/mega-dev-playground#2</a><!--]--></td></tr><tr class="svelte-1nd8eo5"><td class="svelte-1nd8eo5"><code>one-day</code></td><td class="svelte-1nd8eo5">5</td><td class="svelte-1nd8eo5">5</td><td class="svelte-1nd8eo5">2026-04-02 → 2026-10-04</td><td class="svelte-1nd8eo5"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/3">graimon/mega-dev-playground#3</a><!--]--></td></tr><!--]--></tbody></table><!----> <table><thead><tr><th>problem</th><th>what the reporter sees</th><th>cause</th></tr></thead><tbody><tr><td><code>parser</code></td><td>Day and month swap: 7 April arrives as 4 July.</td><td>The shared parser reads every date month first. Every tenant in #4471 writes the day first.</td></tr><tr><td><code>hint</code></td><td>Day and month swap, but only for dates typed into the booking form.</td><td>The <code>booking-v3</code> form prints <code>MM/DD/YYYY</code> under its date field. People type month first, and the form reads the date day first.</td></tr><tr><td><code>one-day</code></td><td>The date moves by one day: Tuesday 12 May arrives as Monday 11 May.</td><td>A day and month swap cannot explain a move of one day. The reports point at time zones: “Client in Lisbon got Tuesday. Client in Toronto got Monday.”</td></tr></tbody></table> <p>A tenant cause places each report: where the tenant is, and which form it runs (<code>causes.ts</code>). The
+than one problem. Each problem has its own cause and needs its own fix.</p> <p>Engineering closed #4471 on 5 October 2026. The fix “fix(dates): parse dd/mm for eu locales”
+fixed the <code>parser</code> problem. Engineering will not fix the <code>hint</code> problem, because the <code>booking-v3</code> form is retired. Engineering gave no verdict for the <code>one-day</code> problem.</p> <aside class="warn svelte-hdh0t2"><!---->#4471 is closed, but the <code>one-day</code> problem is still open. The parser fix does not change a date
+that moves by one day.<!----></aside><!----> <h2>The problems</h2> <p class="sum svelte-vy8x0g"><strong>412</strong> reports merged into #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>state</th></tr></thead><tbody><!--[--><tr class="svelte-vy8x0g"><td class="svelte-vy8x0g"><code>parser</code></td><td class="svelte-vy8x0g">374</td><td class="svelte-vy8x0g">11</td><td class="svelte-vy8x0g">2026-04-01 → 2026-10-04</td><td class="svelte-vy8x0g"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/1">graimon/mega-dev-playground#1</a><!--]--></td><td class="svelte-vy8x0g">fixed</td></tr><tr class="svelte-vy8x0g"><td class="svelte-vy8x0g"><code>hint</code></td><td class="svelte-vy8x0g">33</td><td class="svelte-vy8x0g">3</td><td class="svelte-vy8x0g">2026-04-17 → 2026-09-22</td><td class="svelte-vy8x0g"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/2">graimon/mega-dev-playground#2</a><!--]--></td><td class="svelte-vy8x0g">won't fix</td></tr><tr class="svelte-vy8x0g"><td class="svelte-vy8x0g"><code>one-day</code></td><td class="svelte-vy8x0g">5</td><td class="svelte-vy8x0g">5</td><td class="svelte-vy8x0g">2026-04-02 → 2026-10-04</td><td class="svelte-vy8x0g"><!--[--><a href="https://github.com/graimon/mega-dev-playground/issues/3">graimon/mega-dev-playground#3</a><!--]--></td><td class="svelte-vy8x0g open">open</td></tr><!--]--></tbody></table><!----> <table><thead><tr><th>problem</th><th>what the reporter sees</th><th>cause</th></tr></thead><tbody><tr><td><code>parser</code></td><td>Day and month swap: 7 April arrives as 4 July.</td><td>The shared parser reads every date month first. Every tenant in #4471 writes the day first.</td></tr><tr><td><code>hint</code></td><td>Day and month swap, but only for dates typed into the booking form.</td><td>The <code>booking-v3</code> form prints <code>MM/DD/YYYY</code> under its date field. People type month first, and the form reads the date day first.</td></tr><tr><td><code>one-day</code></td><td>The date moves by one day: Tuesday 12 May arrives as Monday 11 May.</td><td>A day and month swap cannot explain a move of one day. The reports point at time zones: “Client in Lisbon got Tuesday. Client in Toronto got Monday.”</td></tr></tbody></table> <p>A tenant cause places each report: where the tenant is, and which form it runs (<code>causes.ts</code>). The
 intake tag is a guess from the reporter’s browser, so this page ignores it. The desk read some
 reports as a one-day move (<code>desk-notes.json</code>). Those reports form the <code>one-day</code> problem.</p> <h2>How the desk merged them</h2> <p class="sum svelte-5f1c7s"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-5f1c7s"><td class="svelte-5f1c7s"><code>parser</code></td><td class="svelte-5f1c7s">379</td><td class="tags svelte-5f1c7s">parser ×356 · hint ×23</td><td class="svelte-5f1c7s">11</td><td class="svelte-5f1c7s">2026-04-01 → 2026-10-04</td><td class="svelte-5f1c7s">#4471</td></tr><tr class="svelte-5f1c7s wrong"><td class="svelte-5f1c7s"><code>hint</code></td><td class="svelte-5f1c7s">33</td><td class="tags svelte-5f1c7s">hint ×18 · parser ×15</td><td class="svelte-5f1c7s">3</td><td class="svelte-5f1c7s">2026-04-17 → 2026-09-22</td><td class="svelte-5f1c7s">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[--><p class="note svelte-5f1c7s">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[!--><!--]--><!--]--><!----> <p>The desk merged reports with different subject lines into #4471. Decision 0001 merges only on an
 exact subject match, so the merge did not follow the desk’s own rule. A subject line never shows
@@ -35,15 +36,15 @@ the <code>hint</code> problem.</p> <h2>For the desk</h2> <ul><li>Count each repo
 			
 			<script>
 				{
-					__sveltekit_1uzfipd = {
+					__sveltekit_1899qhf = {
 						base: new URL("../../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../../_app/immutable/entry/start.x-jC6Nfp.js"),
-						import("../../../_app/immutable/entry/app.BScZ2Wvg.js")
+						import("../../../_app/immutable/entry/start.CpxEI7jD.js"),
+						import("../../../_app/immutable/entry/app.-bQon1t5.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 5],

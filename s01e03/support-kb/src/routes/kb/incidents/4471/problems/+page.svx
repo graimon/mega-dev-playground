@@ -15,19 +15,24 @@ signature: Raimon Malatesta (graimon)
 
   const repo = 'graimon/mega-dev-playground';
   const issues = { parser: 1, hint: 2, 'one-day': 3 };
+  const states = { parser: 'fixed', hint: "won't fix", 'one-day': 'open' };
 </script>
 
 The [#4471 page](/kb/incidents/4471) says one issue and one fix. The reports in #4471 show more
-than one problem. Each problem has its own cause and needs its own fix. The fix for the parser
-leaves the other problems in place.
+than one problem. Each problem has its own cause and needs its own fix.
+
+Engineering closed #4471 on 5 October 2026. The fix "fix(dates): parse dd/mm for eu locales"
+fixed the `parser` problem. Engineering will not fix the `hint` problem, because the `booking-v3`
+form is retired. Engineering gave no verdict for the `one-day` problem.
 
 <Callout kind="warn">
-#4471 is not one known issue. Each problem below has its own ticket.
+#4471 is closed, but the <code>one-day</code> problem is still open. The parser fix does not change a date
+that moves by one day.
 </Callout>
 
 ## The problems
 
-<ProblemTable ticket={4471} {repo} {issues} />
+<ProblemTable ticket={4471} {repo} {issues} {states} />
 
 | problem | what the reporter sees | cause |
 |---|---|---|
