@@ -1,0 +1,23 @@
+# S01E03 · what it shows
+
+The support desk merged 412 reports into ticket #4471 and marked it known. The reports show three
+problems, each with its own ticket in this repo:
+
+| Ticket | Problem | Reports |
+|---|---|---|
+| [#1](https://github.com/graimon/mega-dev-playground/issues/1) | `parser`: the shared parser reads day-first dates month first | 374 |
+| [#2](https://github.com/graimon/mega-dev-playground/issues/2) | `hint`: the `booking-v3` form hint says `MM/DD/YYYY`, the form reads day first | 33 |
+| [#3](https://github.com/graimon/mega-dev-playground/issues/3) | `one-day`: dates move by one day, probably a time zone conversion | 5 |
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `support-kb/` | The kb export of 2026-10-04, with the new page and its logic |
+| `support-kb/src/routes/kb/incidents/4471/problems/+page.svx` | The new page, signed |
+| `support-kb/src/lib/kb/problems.ts`, `ProblemTable.svelte` | The logic and the table that the page uses |
+| `rendered/kb/incidents/4471/problems.html` | The page as the desk sees it, prerendered |
+| `build-setup/` | The SvelteKit and mdsvex files that built `rendered/` |
+
+To build again: copy the files in `build-setup/` into `support-kb/` (`app.html` and `+layout.js`
+go under `src/` and `src/routes/`), then run `npm install` and `npm run build`.

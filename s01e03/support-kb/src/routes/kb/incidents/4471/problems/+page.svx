@@ -1,0 +1,57 @@
+---
+layout: runbook
+title: '#4471 · the problems inside one ticket'
+owner: graimon
+status: open
+reviewed: 2026-10-28
+signature: Raimon Malatesta (graimon)
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+
+  const repo = 'graimon/mega-dev-playground';
+  const issues = { parser: 1, hint: 2, 'one-day': 3 };
+</script>
+
+The [#4471 page](/kb/incidents/4471) says one issue and one fix. The reports in #4471 show more
+than one problem. Each problem has its own cause and needs its own fix. The fix for the parser
+leaves the other problems in place.
+
+<Callout kind="warn">
+#4471 is not one known issue. Each problem below has its own ticket.
+</Callout>
+
+## The problems
+
+<ProblemTable ticket={4471} {repo} {issues} />
+
+| problem | what the reporter sees | cause |
+|---|---|---|
+| `parser` | Day and month swap: 7 April arrives as 4 July. | The shared parser reads every date month first. Every tenant in #4471 writes the day first. |
+| `hint` | Day and month swap, but only for dates typed into the booking form. | The `booking-v3` form prints `MM/DD/YYYY` under its date field. People type month first, and the form reads the date day first. |
+| `one-day` | The date moves by one day: Tuesday 12 May arrives as Monday 11 May. | A day and month swap cannot explain a move of one day. The reports point at time zones: "Client in Lisbon got Tuesday. Client in Toronto got Monday." |
+
+A tenant cause places each report: where the tenant is, and which form it runs (`causes.ts`). The
+intake tag is a guess from the reporter's browser, so this page ignores it. The desk read some
+reports as a one-day move (`desk-notes.json`). Those reports form the `one-day` problem.
+
+## How the desk merged them
+
+<CauseTable ticket={4471} />
+
+The desk merged reports with different subject lines into #4471. Decision 0001 merges only on an
+exact subject match, so the merge did not follow the desk's own rule. A subject line never shows
+the cause: the same subject "Booking on the wrong date" comes from the `parser` problem and from
+the `hint` problem.
+
+## For the desk
+
+- Count each report once. The ticket export repeats some reports, and `uniqueById` removes the copies.
+- Before you merge a report into a big ticket, check its tenant, its channel, and its dates.
+- A date that moves by one day is not a day and month swap. Keep it apart.
+
+<RenderStamp {signature} />
