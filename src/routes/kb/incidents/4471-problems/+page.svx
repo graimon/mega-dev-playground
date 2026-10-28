@@ -4,7 +4,7 @@ title: '#4471 · the problems inside one ticket'
 owner: graimon
 status: open
 reviewed: 2026-10-28
-signature: Raimon Malatesta (graimon)
+signature: 'v1.eyJzdWIiOiI2NjUiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzE4MTkyNCwiZXhwIjoxNzkzMjY4MzI0fQ.k-tRtV_db3PbAKaZtMsXxZmq5ZKjkC5NgpsSi-QcNuA'
 ---
 
 <script>
