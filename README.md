@@ -8,6 +8,7 @@ Each Challenge that needs a public GitHub repo gets its own folder, named after 
 | Folder | Challenge | State | Issues |
 |---|---|---|---|
 | [`s01e03/`](s01e03/) | [S01E03 · what it shows](https://hq.mega.dev/challenges/what-it-shows) | solved 2026-10-28, archived | #1, #2, #3 |
+| [`s01e04/`](s01e04/) | [S01E04 · before i looked](https://hq.mega.dev/challenges/before-i-looked) | solved 2026-11-01, archived | none here: the course required its own repo, `graimon/s01e04-rig-handover`, deleted after the solve. `issues.md` holds its 8 issues. The `gh-pages` branch serves its preview. |
 
 Each folder has its own `README.md` with the task, the files and the result.
 
